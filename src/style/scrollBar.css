@@ -1,0 +1,9 @@
+.horizontal-scroll::-webkit-scrollbar{
+    height: 1px;
+}
+.horizontal-scroll::-webkit-scrollbar-track{
+    background: rgb(0, 0, 0);
+}
+.horizontal-scroll::-webkit-scrollbar-thumb{
+    background-color: rgb(0, 0, 0);
+}

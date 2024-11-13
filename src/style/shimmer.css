@@ -1,0 +1,25 @@
+.shimmer-container {
+    border-radius: 8px;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+  
+  .shimmer-element {
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(195, 195, 195, 0.1) 25%,
+      rgba(160, 160, 160, 0.2) 50%,
+      rgba(225, 225, 225, 0.1) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+  }
+  
