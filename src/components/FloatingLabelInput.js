@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 
-const FloatingLabelInput = ({ label, type }) => {
-  const [value, setValue] = useState("");
+const FloatingLabelInput = ({
+  label,
+  type,
+  name,
+  value,
+  onChange,
+  onBlur,
+  error,
+}) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -17,12 +24,18 @@ const FloatingLabelInput = ({ label, type }) => {
       </label>
       <input
         type={type}
+        name={name}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={onChange}
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onBlur={(e) => {
+          setIsFocused(false);
+          if (onBlur) onBlur(e);
+        }}
+        maxLength={40}
         className="px-4 pt-6 pb-2.5 text-sm leading-6 bg-slate-500 bg-opacity-30 w-full rounded-md border border-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
       />
+      {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
     </div>
   );
 };

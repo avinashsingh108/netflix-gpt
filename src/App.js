@@ -1,26 +1,40 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Browse from "./components/Browse";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import AuthForm from "./components/AuthForm";
+import { Provider } from "react-redux";
+import appStore from "./store/appStore";
+import SearchPage from "./components/SearchPage";
+import MovieDetailsPage from "./components/MovieDetailsPage";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   const appRouter = createBrowserRouter([
     {
       path: "/",
+      element: <AuthForm />,
+    },
+    {
+      path: "/browse",
       element: <Browse />,
     },
     {
-      path: "/login",
-      element: <Login />,
+      path: "/search",
+      element: <SearchPage />,
     },
     {
-      path: "/signup",
-      element: <Signup />,
+      path: "/forgot-password",
+      element: <ForgotPassword />,
+    },
+    {
+      path: "/info/:id",
+      element: <MovieDetailsPage />,
     },
   ]);
   return (
     <>
-      <RouterProvider router={appRouter} />
+      <Provider store={appStore}>
+        <RouterProvider router={appRouter} />
+      </Provider>
     </>
   );
 }
