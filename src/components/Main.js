@@ -112,7 +112,7 @@ const Main = () => {
       <div className="lg:w-full lg:h-screen absolute lg:bg-gradient-to-r from-black from-5% via-transparent to-transparent"></div>
       {urlId && (
         <div className="w-full max-lg:pt-12">
-          {/* <iframe
+          <iframe
             key={isMuteOn ? "muted" : "unmuted"}
             className="w-full h-60 md:h-[450px] lg:h-screen border-b border-opacity-20 border-white"
             src={`https://www.youtube.com/embed/${urlId}?&autoplay=1&controls=0&rel=0&loop=1&playlist=${urlId}&${
@@ -122,7 +122,7 @@ const Main = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-          ></iframe> */}
+          ></iframe>
         </div>
       )}
 
