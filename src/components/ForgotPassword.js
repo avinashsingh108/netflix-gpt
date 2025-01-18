@@ -10,6 +10,7 @@ const ForgotPassword = () => {
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const user = useSelector((store) => store.user);
+  
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
