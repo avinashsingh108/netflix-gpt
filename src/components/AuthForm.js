@@ -34,7 +34,7 @@ const AuthForm = () => {
         : null,
       email: Yup.string()
         .email("Invalid email address")
-        .required("Email or Mobile number is required"),
+        .required("Email is required"),
       password: Yup.string()
         .min(6, "Password must be at least 6 characters")
         .required("Password is required"),
@@ -210,7 +210,7 @@ const AuthForm = () => {
                 Forgot Password?
               </h4>
               <h4 className="text-gray-400">
-                New to Netflix?{" "}
+                New to NetflixGPT?{" "}
                 <span
                   onClick={() => setIsSignUp(true)}
                   className="font-semibold text-white hover:underline cursor-pointer"
@@ -226,7 +226,7 @@ const AuthForm = () => {
               aria-label="Login using demo credentials"
               className="text-base font-m mb-1 "
             >
-              Login using demo credentials:
+              Sign In using demo credentials:
             </h4>
 
             <div className="flex flex-col text-gray-400">

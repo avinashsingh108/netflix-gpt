@@ -3,12 +3,12 @@ import MovieCard from "./MovieCard";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovies } from "../store/movieSlice";
 import CardShimmer from "./CardShimmer";
-import "../style/scrollBar.css"
+import "../style/scrollBar.css";
 
 const MovieCategories = () => {
   const genres = [
     { id: 1, name: "Action" },
-    { id: 4, name: "Comedy" },
+    { id: 18, name: "War" },
     { id: 11, name: "Horror" },
     { id: 15, name: "Science Fiction" },
   ];
@@ -40,7 +40,7 @@ const MovieCategories = () => {
           </h2>
           {movieData[name] && movieData[name].length > 0 ? (
             <div className="flex overflow-x-auto gap-2 horizontal-scroll">
-              {movieData[name].slice(0, 6).map((movie) => (
+              {movieData[name].slice(0, 8).map((movie) => (
                 <MovieCard key={movie.id} query={movie.imdb_id} parameter="i" />
               ))}
             </div>

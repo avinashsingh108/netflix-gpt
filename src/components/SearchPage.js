@@ -30,9 +30,16 @@ const SearchPage = () => {
       setSearchClicked(true);
       try {
         const result = await run(searchQuery);
+        let cleanResult = result;
+
+        if (typeof result === "string") {
+          cleanResult = result.replace(/```json|```/g, "").trim();
+        }
+
         const parsedResult =
-          typeof result === "string" ? JSON.parse(result) : result;
-        console.log(parsedResult);
+          typeof cleanResult === "string"
+            ? JSON.parse(cleanResult)
+            : cleanResult;
 
         setSearchTitle(parsedResult[0]);
 
@@ -98,17 +105,17 @@ const SearchPage = () => {
             Analyzing the user input...
           </p>
         )}
-
-        {searchClicked && searchingIds && (
-          <div className="mt-20">
-            <CardShimmer count={12} val={6} />
-          </div>
-        )}
         {searchTitle && (
           <p className="text-lg font-medium md:font-semibold mb-4 mt-6 md:mt-10 px-4 max-w-4xl text-center">
             {searchTitle}
           </p>
         )}
+        {searchClicked && searchingIds && (
+          <div className="mt-6">
+            <CardShimmer count={12} val={6} />
+          </div>
+        )}
+
         <div className="w-full max-w-5xl p-8 md:p-4">
           {ids?.length > 0 ? (
             <>

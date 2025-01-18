@@ -3,7 +3,7 @@ import React from "react";
 const CardShimmer = ({ count, val }) => {
   return (
     <div
-      className={`grid grid-cols-3 md:grid-cols-3 lg:grid-cols-${val} gap-4`}
+      className={`grid grid-cols-3 md:grid-cols-${val} lg:grid-cols-${val} gap-4`}
     >
       {Array.from({ length: count }).map((_, index) => (
         <div
